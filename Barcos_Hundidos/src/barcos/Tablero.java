@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Tablero {
 
-	//atributos:
+	//Atributos:
 	public List<List<Integer>> tabla;
 	public int tamanio;
 	public boolean todoHundido;
 	public Jugador jugador;
 	public List<Barco> barcos;
 	
-	
+	//Contructor:
 	public Tablero(int tamanio,Jugador jugador) {
 		this.tabla = new ArrayList<List<Integer>>();
 		this.tamanio = tamanio;
@@ -20,12 +20,13 @@ public class Tablero {
 		this.jugador = jugador;
 		this.barcos = new ArrayList<Barco>();
 	}
+	//Metodos:
 	
-	//metodos:
-	
+	//Una funcion donde generamos el tablero segun el tamaño asignado en los atributos y 
+	//añadimos los barcos de la lista de barcos
 	public void generarTablero() {
-		System.out.println("Generamos tablero");
 		
+		//bucle para crear el tablero segun el tamaño dado en los atributos
 		for(int i=1;i<=this.tamanio;i++) {
 			List<Integer> fila = new ArrayList<Integer>();
 			for(int j=1; j<=this.tamanio;j++) {
@@ -34,17 +35,16 @@ public class Tablero {
 			this.tabla.add(fila);
 		}
 		
+		//recorremos la lista de barcos y añadimos cada barco al tablero
+		//asegurandonos que ningun barco se colpase uno encima del otro
 		for(Barco barco: this.barcos) {
 			System.out.println(barco.getPosX());
 			int posX = barco.getPosX();
 			int posY = barco.getPosY();
 			
 			List<Integer> fila = this.tabla.get(posX);
-			if(fila.get(posY)==4) {
-				barco.generarPos(tamanio);
-				continue;
-			}
 			fila.set(posY, 4);
+			
 		}
 		
 	}
