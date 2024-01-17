@@ -36,17 +36,19 @@ public class Tablero {
 		}
 		
 		//recorremos la lista de barcos y añadimos cada barco al tablero
-		//asegurandonos que ningun barco se colpase uno encima del otro
+		//asegurandonos que ningun barco se colapse uno encima del otro
 		for(Barco barco: this.barcos) {
-			System.out.println(barco.getPosX());
 			int posX = barco.getPosX();
 			int posY = barco.getPosY();
 			
 			List<Integer> fila = this.tabla.get(posX);
-			fila.set(posY, 4);
+			if(fila.get(posY)==4) {
+				
+			}else {
+				fila.set(posY, 4);
+			}
 			
 		}
-		
 	}
 	
 	public void generarBarcos(int cantBarcos) {
@@ -59,8 +61,12 @@ public class Tablero {
 				this.barcos.add(barco);
 			}
 		}
-		
-		
+	}
+	
+	public void comprobarListaBarcos() {
+		for(Barco barco: this.barcos) {
+			
+		}
 	}
 	
 	public void mostrarTablero() {
