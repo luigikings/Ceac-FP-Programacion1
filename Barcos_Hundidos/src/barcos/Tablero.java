@@ -43,7 +43,6 @@ public class Tablero {
 			
 			List<Integer> fila = this.tabla.get(posX);
 			if(fila.get(posY)==4) {
-				
 			}else {
 				fila.set(posY, 4);
 			}
