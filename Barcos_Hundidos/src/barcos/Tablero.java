@@ -43,6 +43,14 @@ public class Tablero {
 			
 			List<Integer> fila = this.tabla.get(posX);
 			if(fila.get(posY)==4) {
+				for(List<Integer> filas: tabla) {
+					List<Integer> fila2 = filas;
+					for(int pos: fila2) {
+						if(pos==0) {
+							fila2.set(pos, 4);
+						}
+					}
+				}
 			}else {
 				fila.set(posY, 4);
 			}
@@ -51,6 +59,7 @@ public class Tablero {
 	}
 	
 	public void generarBarcos(int cantBarcos) {
+		this.barcos.clear();
 		if((this.tamanio*this.tamanio)<cantBarcos) {
 			
 		}else {
@@ -62,10 +71,22 @@ public class Tablero {
 		}
 	}
 	
-	public void comprobarListaBarcos() {
-		for(Barco barco: this.barcos) {
+	public boolean comprobarListaBarcos() {
+		for(int i=0;i<this.barcos.size();i++) {
+			for(int j=i+1;j<this.barcos.size();j++) {
+				if(j>this.barcos.size()){
+					break;
+				}
+				if(this.barcos.get(i).getPosX()==this.barcos.get(j).getPosX() && this.barcos.get(i).getPosY()==this.barcos.get(j).getPosY()) {
+					System.err.println("Barcos Repetidos!");
+					return true;
+				}
+				
+				
+			}
 			
 		}
+		return false;
 	}
 	
 	public void mostrarTablero() {

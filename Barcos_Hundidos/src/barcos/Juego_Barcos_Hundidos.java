@@ -14,8 +14,8 @@ public class Juego_Barcos_Hundidos {
 		Tablero tablero2 = new Tablero(5,jugador2);
 		
 		//Generamos la cantidad de barcos que queramos
-		tablero1.generarBarcos(3);
-		tablero2.generarBarcos(3);
+		tablero1.generarBarcos(20);
+		tablero2.generarBarcos(20);
 		
 		//Ya con los barcos asignados al tablero vamos a generar el tablero con sus barcos
 		tablero1.generarTablero();
