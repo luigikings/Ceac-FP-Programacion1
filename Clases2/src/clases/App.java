@@ -6,10 +6,10 @@ public class App {
 		// TODO Auto-generated method stub
 		
 		Fruta f = new Fruta(false, 20, "Amarillo","Platano");
-		f.info();
+		//f.info();
 		
 		Naranja n= new Naranja(20);
-		n.info();
+		//n.info();
 		
 	}
 
