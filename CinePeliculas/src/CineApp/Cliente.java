@@ -22,10 +22,16 @@ public class Cliente {
 		this.butacasCompradas = new ArrayList<Butaca>();
 	}
 	//metodos:
-	public void comprarEntradas() {
+	public void comprarEntradas(Cine cine) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Bienvenido a Cinex! \n Elige que Pelicula quieres ver:");
-		for()
+		while(true) {
+			cine.mostrarCartelera();
+			System.out.println("Selecciona el numero de la sala!");
+			String usuario1 = sc.nextLine();
+			//if(usuario1.equals())
+			break;
+		}
 		
 	}
 	
