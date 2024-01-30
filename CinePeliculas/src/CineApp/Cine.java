@@ -19,6 +19,10 @@ public class Cine {
 		this.clientes = new ArrayList<Cliente>();
 	}
 	//Metodos:
+	public void agregarCliente(Cliente cliente) {
+		clientes.add(cliente);
+	}
+	
 	public void agregarPelicula(Pelicula peli) {
 		peliculas.add(peli);
 	}
@@ -42,6 +46,23 @@ public class Cine {
 			System.out.println("");
 		}
 	}
+	
+	public void listarPelis() {
+		for(Pelicula peli: peliculas) {
+			System.out.println("-----------------------------"
+					+ "\n"+peli.getNumSala()+": "+peli.getTitulo());
+		}
+	}
+	
+	public Sala buscarSala(String usuario) {
+		for(Sala sala: salas) {
+			if(usuario==sala.getNumero()) {
+				return sala;
+			}
+		}
+		return null;
+	}
+	
 
 	//getters and Setters:
 	public String getNombre() {

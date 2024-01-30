@@ -22,17 +22,43 @@ public class Cliente {
 		this.butacasCompradas = new ArrayList<Butaca>();
 	}
 	//metodos:
+	
 	public void comprarEntradas(Cine cine) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Bienvenido a Cinex! \n Elige que Pelicula quieres ver:");
+		Sala sala = null;
 		while(true) {
-			cine.mostrarCartelera();
-			System.out.println("Selecciona el numero de la sala!");
+			System.out.println("Elige la pelicula:");
+			cine.listarPelis();
 			String usuario1 = sc.nextLine();
-			//if(usuario1.equals())
-			break;
+			sala = cine.buscarSala(usuario1);
+			if(sala!=null) {
+				break;
+			}
+			System.err.println("UPS!");
 		}
-		
+		if(sala.sumarButacasDisponibles()!=0) {
+			for(Butaca butaca: sala.getButacas()) {
+				if(butaca.isDisponible()) {
+					butaca.setDisponible(false);
+					butacasCompradas.add(butaca);
+					System.out.println("Butaca comprada asiento numero:"+butaca.getNumero());
+					break;
+				}
+			}
+		} else {
+			System.err.println("NO HAY MAS ASIENTOS!");
+		}
+	}
+	
+	public void mostrarButacas(Cine cine) {
+		for(Butaca butaca: butacasCompradas) {
+			System.out.println("Butaca: "+butaca.getNumero()+" de la pelicula:");
+			Sala sala = cine.buscarSala(butaca.getNumero()+"");
+			Pelicula peli = sala.getPelicula();
+			System.out.print(peli.getTitulo());
+			System.out.println("-------------------------");
+		}
 	}
 	
 	//Getters and Setters:

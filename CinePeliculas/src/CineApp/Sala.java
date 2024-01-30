@@ -7,12 +7,12 @@ public class Sala {
 
 	//Atributos:
 	private List<Butaca> butacas;
-	private int numero;
+	private String numero;
 	private Pelicula pelicula;
 	private int capacidad;
 	
 	//Constructor:
-	public Sala (int numero, Pelicula pelicula, int capacidad) {
+	public Sala (String numero, Pelicula pelicula, int capacidad) {
 		this.butacas = generarButacas();
 		this.numero = numero;
 		this.pelicula = pelicula;
@@ -24,10 +24,27 @@ public class Sala {
 	public List<Butaca> generarButacas(){
 		List<Butaca> butacas = new ArrayList<Butaca>();
 		for(int i=0; i<capacidad;i++) {
-			Butaca butaca = new Butaca(i,4.99);
+			Butaca butaca = new Butaca(i,4.99,pelicula.getNumSala());
 			butacas.add(butaca);
 		}
 		return butacas;
+	}
+	
+	public void mostrarCapacidad() {
+		System.out.println(capacidad+" asientos");
+		System.out.println(sumarButacasDisponibles()+" disponibles");
+	}
+	
+	public int sumarButacasDisponibles() {
+		int butacasDisponibles = capacidad;
+		
+		for(Butaca butaca: butacas) {
+			if(!butaca.isDisponible()) {
+				butacasDisponibles--;
+			}
+		}
+		
+		return butacasDisponibles;
 	}
 	
 
@@ -40,11 +57,11 @@ public class Sala {
 		this.butacas = butacas;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 

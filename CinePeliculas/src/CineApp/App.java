@@ -15,11 +15,16 @@ public class App {
 		 cinex.agregarPelicula(peli2);
 		 cinex.agregarPelicula(peli3);
 		 
-		 Sala sala1 = new Sala(1, peli1, 5);
-		 Sala sala2 = new Sala(2, peli2, 5);
-		 Sala sala3 = new Sala(3, peli3, 5);
+		 Sala sala1 = new Sala("1", peli1, 5);
+		 Sala sala2 = new Sala("2", peli2, 5);
+		 Sala sala3 = new Sala("3", peli3, 5);
+		 
+		 sala1.mostrarCapacidad();
 		 
 		 cinex.mostrarCartelera();
+		 
+		 Cliente cliente1 = new Cliente("Luigidasilv@gmail.com", "Luis Angel Jose", "Da Silva Veliz");
+		 cliente1.comprarEntradas(cinex);
 		 
 		 
 	}
