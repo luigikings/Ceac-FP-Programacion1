@@ -54,9 +54,15 @@ public class Cine {
 		}
 	}
 	
+	public void listarSalas() {
+		for(Sala sala: salas) {
+			System.out.println(sala.getNumero());
+		}
+	}
+	
 	public Sala buscarSala(String usuario) {
 		for(Sala sala: salas) {
-			if(usuario==sala.getNumero()) {
+			if(usuario.equals(sala.getNumero())) {
 				return sala;
 			}
 		}

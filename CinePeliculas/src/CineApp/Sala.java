@@ -23,7 +23,7 @@ public class Sala {
 	//Una funcion para que a la hora de generar la sala se creen las butacas de dicha sala y se les asigne a la lista de butacas
 	public List<Butaca> generarButacas(){
 		List<Butaca> butacas = new ArrayList<Butaca>();
-		for(int i=0; i<capacidad;i++) {
+		for(int i=1; i<=capacidad;i++) {
 			Butaca butaca = new Butaca(i,4.99,pelicula.getNumSala());
 			butacas.add(butaca);
 		}

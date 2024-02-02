@@ -37,13 +37,16 @@ public class Cliente {
 			}
 			System.err.println("UPS!");
 		}
+		
+		
 		if(sala.sumarButacasDisponibles()!=0) {
-			for(Butaca butaca: sala.getButacas()) {
+			for(Butaca butaca: sala.generarButacas()) {
 				if(butaca.isDisponible()) {
 					butaca.setDisponible(false);
 					butacasCompradas.add(butaca);
 					System.out.println("Butaca comprada asiento numero:"+butaca.getNumero());
 					break;
+					
 				}
 			}
 		} else {

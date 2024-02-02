@@ -19,7 +19,13 @@ public class App {
 		 Sala sala2 = new Sala("2", peli2, 5);
 		 Sala sala3 = new Sala("3", peli3, 5);
 		 
-		 sala1.mostrarCapacidad();
+		 for(Butaca butaca: sala1.getButacas()) {
+			 System.out.println(butaca.getNumero());
+		 }
+		 
+		 cinex.agregarSala(sala1);
+		 cinex.agregarSala(sala2);
+		 cinex.agregarSala(sala3);
 		 
 		 cinex.mostrarCartelera();
 		 
